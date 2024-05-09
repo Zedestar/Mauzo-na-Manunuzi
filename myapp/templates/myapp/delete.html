@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+
+    {% block content %}
+
+        <br>
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            <h2 class="">
+                Are you sure you want to delete {{product.name}}
+            </h2>
+
+            <div class="d-flex flex-column justify-content-start align-items-center w-5">
+
+                <button class="btn btn-xl btn-danger" type="submit">Delelet</button>
+            
+                <a href="{% url 'myapp:view' product.id %}" class="btn btn-secondary">Cancel</a>
+
+
+            </div>
+            
+        </form>
+
+
+    {% endblock content%}

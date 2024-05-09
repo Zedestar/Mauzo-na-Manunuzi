@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+
+    {% block content %}
+        <head>
+            <title>
+                View item
+            </title>
+            <style>
+                .card{
+                    width: 50%;
+                    position: relative;
+                    left: 20%;
+                }
+            </style>
+        </head>
+        <br>
+        <body>
+            <div class="card mb-3">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-7 bg-secondary">
+                    <div class="card-body">
+                        <h1 class="card-title"> {{product.name}}</h1>
+                        <h4 class="card-text">{{product.shortDesc}}</h4>
+                        <h5>{{product.price}} TShs</h5>
+                        <p class="card-text font-lg">{{product.desc}}</p>
+                        <h6 class="">Posted by: <span class="text-dark"><a href="{% url 'users:sellerProfile' product.seller_name.profile.id %}" class="text-dark">{{product.seller_name}}</a></span></h6>
+                        <p class="card-text"><small class="text-muted">{{product.seller_name.profile.contact}}</small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <a href="{% url 'myapp:dashboard' %}" class="btn btn-secondary">Back</a>
+
+                        {% if request.user == product.seller_name%}
+                            <a href="{% url 'users:update' product.id %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'users:delete' product.id %}" class="btn btn-danger">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </body>
+
+    {% endblock content %}
+
+
+    

@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+
+    {% block content %}
+
+
+    <form action="" method="POST" class="m-5 w-6 bg-primary" id="form" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <h2 class="text-light my-3"> Edit the item </h2>
+
+        {{form}}
+       
+        
+            <button type="submit" class="btn btn-success">
+                Update
+            </button>
+            <a href="{% url 'myapp:view' product.id %}" class="btn btn-secondary btn-xl">
+                Cancel
+            </a>
+        
+
+    </form>
+
+
+    {% endblock content %}

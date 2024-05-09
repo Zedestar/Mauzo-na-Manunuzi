@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html '%}
+
+    {% block content %}
+
+        <h1>Seller's informations:</h1> <br>
+        <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="{{seller.image.url}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7 bg-secondary">
+                <div class="card-body">
+                    <h1 class="card-title"> {{seller.contact}}</h1>
+                    <h4>{{seller.user.email}}</h4>
+                    <h4>{{seller.user.username}}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+                <h4>Contact the seller to buy the product</h4>
+            </div>
+        </div>
+    {% endblock content %}

@@ -1,0 +1,64 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #form{
+            width: 50%;
+            position: relative;
+            left: 15%;    
+            border-radius: 5%;
+            padding: 2%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button{
+            margin: 3%;
+        }
+        label{
+            font-size:x-large;
+            color: black;
+        }
+
+        .card{
+            width: 50%;
+            position: relative;
+            left: 20%;
+        }
+        
+        
+    </style>
+    {% load django_bootstrap5 %}
+    {% bootstrap_messages %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+</head>
+<body>
+
+    {% include 'myapp/navbar.html' %}
+
+    {% block content %}
+
+
+
+    {% endblock content %}
+    
+
+
+<!-- First, include jQuery -->
+
+
+<!-- Then, include Bootstrap JS -->
+
+
+</body>
+</html>

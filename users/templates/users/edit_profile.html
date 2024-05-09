@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+
+{% block content %}
+
+<div class="m-3 p-3" style="width: 60%;">
+
+
+  {% load crispy_forms_tags %}
+    <form width="60%" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <h1>Edit your profile....</h1>
+
+        {{form|crispy}}
+
+        <button type="submit" class="btn btn-primary"> Edit </button>
+        <a href="{% url 'users:Profile' profile.id %}" class="btn btn-secondary">Cancel</a>
+      </form>
+
+
+</div>
+
+{% endblock content %}

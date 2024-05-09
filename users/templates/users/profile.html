@@ -1,0 +1,78 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <img src="{{user.image.url}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-7 bg-secondary">
+            <div class="card-body">
+                <h1 class="card-title"> {{user.contact}}</h1>
+                <h4 class="card-text">{{user.seller_name.username}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex align-items-center justify-content-center" style="height: auto;">
+            <a href="{% url 'users:edit_profile' user.id %}" class="btn btn-primary">Edit Profile</a>
+          </div>
+        </div>
+      </div>
+
+        <br>
+
+        <a href="{% url 'myapp:add_item' %}" class="btn btn-secondary btn-outline-none text-lg">
+          Create Record
+        </a>
+    
+
+        <br>
+        <table class="table table-striped table-responsive">
+            <tr class="m-5">
+              <th>
+                <h4>Name of Product</h4>
+              </th>
+              <th>
+                <h4>Price of Product</h4>
+              </th>
+              <th>
+                <h4>Decription</h4>
+              </th>
+              <th>
+                <h4>view</h4>
+              </th>
+            </tr>
+            {% for prod in my_products %}
+            <tr>
+              <td>
+                <p>{{prod.name}}</p>
+              </td>
+              <td>
+                <p>{{prod.price}}</p>
+              </td>
+              <td>
+                <p>{{prod.shortDesc}}</p>
+              </td>
+              <td>
+                <a href="view/{{prod.id}}" class="btn btn-primary btn-large m-0.5"
+                  >View</a
+                >
+              </td>
+            </tr>
+        
+            {% endfor %}
+          </table>
+
+    
+
+    
+{% endblock content %}
+
+<br>
+    <h1>Welcome {{user.username}}</h1>
+    <h1>Email: {{user.email}}</h1>
+    <h1>contact {{user.profile.contact}}</h1>
+    <h1>anonymous {{user.profile.user}}</h1>
+    <img src="{{user.profile.image.url}}" alt="Picha una nini na mimi">
